@@ -48,6 +48,7 @@ WINSDKROOT = C:\Program Files\Microsoft SDKs\Windows\v7.0A
 !message === COMPILING FOR 32-BIT
 
 MATLABROOT = C:\Program Files (x86)\MATLAB\R2010b
+MATLABROOT = C:\Program Files\MATLAB\R2014b
 MEX = "$(MATLABROOT)\bin\mex.bat"
 MEXOPT = "$(MATLABROOT)\bin\win32\mexopts\msvc$(MSVSVER)opts.bat"
 MEXEXT = mexw32
@@ -66,8 +67,10 @@ LFLAGS = /MACHINE:X86 \
 !message === COMPILING FOR 64-BIT
 
 MATLABROOT = C:\Program Files\MATLAB\R2010b
+MATLABROOT = C:\Program Files\MATLAB\R2014b
 MEX = "$(MATLABROOT)\bin\mex.bat"
 MEXOPT = "$(MATLABROOT)\bin\win64\mexopts\msvc$(MSVSVER)opts.bat"
+MEXOPT = "C:\Program Files\MATLAB\R2014b\bin\win64\mexopts\msvc2013.xml"
 MEXEXT = mexw64
 MEX_FLAGS = -largeArrayDims
 
@@ -357,7 +360,7 @@ all: $(bindir) $(objdir) \
 !endif
 
 BUILD_MEX=@echo .... CC [MEX] $(@) && \
-	$(MEX) $(MEX_FLAGS) "$(<)" -output $(@)
+  $(MEX) $(MEX_FLAGS) "$(<)" -output $(@)
 
 # --------------------------------------------------------------------
 #                                                    Maintenance rules
